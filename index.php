@@ -27,6 +27,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background: var(--secondary-color);
       color: var(--text-color);
@@ -40,7 +44,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 10%;
+      padding: 20px 5%;
       background: rgba(8, 17, 30, 0.95);
       position: fixed;
       top: 0;
@@ -53,22 +57,22 @@
     }
 
     .navbar.scrolled {
-      padding: 15px 10%;
+      padding: 15px 5%;
       box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 10px;
       font-weight: 700;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       color: var(--primary-color);
     }
 
     .logo-img {
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid var(--primary-color);
@@ -81,7 +85,7 @@
 
     nav {
       display: flex;
-      gap: 30px;
+      gap: 20px;
     }
 
     nav a {
@@ -91,6 +95,7 @@
       position: relative;
       padding: 8px 0;
       transition: var(--transition);
+      font-size: 0.9rem;
     }
 
     nav a:hover, nav a.active {
@@ -112,13 +117,44 @@
       width: 100%;
     }
 
+    /* Mobile Menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      width: 30px;
+      height: 25px;
+      justify-content: space-between;
+    }
+
+    .menu-toggle span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: var(--text-color);
+      border-radius: 3px;
+      transition: var(--transition);
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(11px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-11px) rotate(-45deg);
+    }
+
     /* Hero Section */
     .hero {
       display: flex;
       align-items: center;
       justify-content: space-between;
       min-height: 100vh;
-      padding: 120px 10% 80px;
+      padding: 120px 5% 80px;
       position: relative;
       overflow: hidden;
     }
@@ -144,11 +180,13 @@
     }
 
     .hero-content h1 {
-      font-size: 3.5rem;
+      font-size: clamp(2rem, 5vw, 3.5rem);
       line-height: 1.2;
       margin-bottom: 20px;
       color: var(--primary-color);
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
     .hero-content h1::after {
@@ -162,9 +200,10 @@
     }
 
     .hero-content p {
-      font-size: 1.2rem;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
       color: var(--text-light);
       margin-bottom: 30px;
+      line-height: 1.6;
     }
 
     .btn-book {
@@ -180,6 +219,7 @@
       box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3);
       position: relative;
       overflow: hidden;
+      text-align: center;
     }
 
     .btn-book::before {
@@ -226,7 +266,7 @@
 
     /* Features Section */
     .features {
-      padding: 100px 10%;
+      padding: 80px 5%;
       background: rgba(255, 255, 255, 0.02);
     }
 
@@ -236,7 +276,7 @@
     }
 
     .section-title h2 {
-      font-size: 2.5rem;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
       color: var(--primary-color);
       margin-bottom: 15px;
       position: relative;
@@ -260,18 +300,19 @@
       max-width: 600px;
       margin: 0 auto;
       font-size: 1.1rem;
+      padding: 0 15px;
     }
 
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
     }
 
     .feature-card {
       background: var(--card-bg);
       border-radius: 16px;
-      padding: 40px 30px;
+      padding: 30px 20px;
       text-align: center;
       transition: var(--transition);
       border: 1px solid rgba(255, 255, 255, 0.05);
@@ -303,7 +344,7 @@
     }
 
     .feature-icon {
-      font-size: 3rem;
+      font-size: 2.5rem;
       margin-bottom: 20px;
       display: block;
     }
@@ -311,16 +352,17 @@
     .feature-card h3 {
       color: var(--primary-color);
       margin-bottom: 15px;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
     }
 
     .feature-card p {
       color: var(--text-light);
+      line-height: 1.6;
     }
 
     /* CTA Section */
     .cta {
-      padding: 100px 10%;
+      padding: 80px 5%;
       text-align: center;
       background: linear-gradient(135deg, rgba(0,255,157,0.1), rgba(0,180,255,0.1));
       position: relative;
@@ -345,7 +387,7 @@
     }
 
     .cta h2 {
-      font-size: 2.5rem;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
       color: var(--primary-color);
       margin-bottom: 20px;
     }
@@ -357,6 +399,7 @@
       margin-left: auto;
       margin-right: auto;
       font-size: 1.1rem;
+      padding: 0 15px;
     }
 
     /* Footer */
@@ -392,6 +435,17 @@
       }
     }
 
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @keyframes rotate {
       from {
         transform: rotate(0deg);
@@ -417,25 +471,48 @@
         justify-content: center;
         margin-top: 40px;
       }
-
-      .hero-content h1 {
-        font-size: 3rem;
-      }
     }
 
     @media (max-width: 768px) {
       .navbar {
         padding: 15px 5%;
-        flex-direction: column;
-        gap: 15px;
+      }
+
+      .menu-toggle {
+        display: flex;
       }
 
       nav {
-        gap: 20px;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: rgba(8, 17, 30, 0.98);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 15px;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+      }
+
+      nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      nav a {
+        font-size: 1.1rem;
+        padding: 10px 0;
       }
 
       .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
       }
 
       .hero-content p {
@@ -447,30 +524,54 @@
       }
 
       .features, .cta {
-        padding: 80px 5%;
+        padding: 60px 5%;
       }
 
       .feature-card {
-        padding: 30px 20px;
+        padding: 25px 15px;
       }
     }
 
     @media (max-width: 480px) {
       .hero-content h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
 
       .btn-book {
         padding: 12px 25px;
         font-size: 1rem;
+        width: 100%;
+        max-width: 250px;
       }
 
       .section-title h2 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
       }
 
       .cta h2 {
-        font-size: 2rem;
+        font-size: 1.6rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .logo span {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .hero-content h1 {
+        font-size: 1.6rem;
+      }
+
+      .hero-content p {
+        font-size: 0.95rem;
+      }
+
+      .logo span {
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -480,6 +581,11 @@
     <div class="logo">
       <img src="assets/images/logo.jpg" alt="logo" class="logo-img">
       <span>Futsal Taruna Mandiri</span>
+    </div>
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
     <nav>
       <a href="index.php" class="active">Beranda</a>
@@ -533,6 +639,15 @@
     </div>
   </section>
 
+  <!-- CTA SECTION -->
+  <section class="cta">
+    <div class="cta-content">
+      <h2>Siap Bermain Futsal?</h2>
+      <p>Jangan tunggu lagi! Pesan lapangan futsal favorit Anda sekarang dan rasakan pengalaman bermain yang tak terlupakan.</p>
+      <a href="lapangan.php" class="btn-book">Booking Sekarang</a>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer class="footer">
     <p>© 2025 Futsal Taruna Mandiri | Semua Hak Dilindungi</p>
@@ -547,6 +662,23 @@
       } else {
         navbar.classList.remove('scrolled');
       }
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    
+    menuToggle.addEventListener('click', function() {
+      this.classList.toggle('active');
+      nav.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function() {
+        menuToggle.classList.remove('active');
+        nav.classList.remove('active');
+      });
     });
 
     // Smooth scroll for navigation links

@@ -614,16 +614,6 @@ $bookR = mysqli_query($conn, $bookQ);
         <span class="stat-number"><?= mysqli_num_rows($bookR) ?></span>
         <span class="stat-label">Total Booking</span>
       </div>
-      <div class="stat-card fade-in">
-        <span class="stat-icon">💰</span>
-        <span class="stat-number">Rp</span>
-        <span class="stat-label">Pendapatan</span>
-      </div>
-      <div class="stat-card fade-in">
-        <span class="stat-icon">👥</span>
-        <span class="stat-number">∞</span>
-        <span class="stat-label">Pengguna Aktif</span>
-      </div>
     </div>
 
     <!-- Price Management Card -->
